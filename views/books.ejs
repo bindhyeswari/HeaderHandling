@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="/jquery.js"></script>
+    <script>
+        $(function(){
+            $.getJSON('/books', function (data) {
+                for (var i = 0, len = data.books.length; i < len; i++) {
+                    var $div = $('<div>').addClass('book').appendTo('#results');
+                    $('<span>').addClass('author').html(data.books[i].author).appendTo($div);
+                    $('<span>').addClass('title').html(data.books[i].title).appendTo($div);
+
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+Book data here ...
+
+<div id="results">
+    <div class="book">
+        <span class="author"></span>
+        <span class="title"></span>
+    </div>
+</div>
+
+</body>
+</html>
